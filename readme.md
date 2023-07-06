@@ -5,7 +5,7 @@ Is a client for handling [lampush](https://monespace.lafricamobile.com/register)
 You can find the documentation [here](https://developers.lafricamobile.com/docs/sms#tag/Send-via-JSON)
 
 # How to setup ?
-- Download the client dll [here]()
+- Download the client dll [here](https://github.com/woueziou/SmsGateWay/releases/tag/v1.0)
 - Add it to your project
 
 ## how to use
