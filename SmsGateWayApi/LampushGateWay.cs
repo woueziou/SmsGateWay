@@ -24,7 +24,7 @@ public class LampushGateWay
         {
             Accountid = _accountId,
             Password = _password,
-            To = receiver,
+            Receiver =new []{receiver},
             Text = message,
             Sender = _sender
         };
@@ -40,6 +40,8 @@ public class LampushGateWay
             {
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(result);
+                var msg = response.RequestMessage.Content.ReadAsStringAsync();
+                Console.WriteLine(msg);
             }
         }
         catch (Exception e)

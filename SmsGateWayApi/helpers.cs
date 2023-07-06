@@ -10,20 +10,20 @@ public class SnakeCaseNamingPolicy : JsonNamingPolicy
         if (string.IsNullOrEmpty(name))
             return name;
 
-        string convertedName = "";
+        // string convertedName = "";
+        //
+        // for (int i = 0; i < name.Length; i++)
+        // {
+        //     if (char.IsUpper(name[i]))
+        //     {
+        //         convertedName += "_" + char.ToLower(name[i]);
+        //     }
+        //     else
+        //     {
+        //         convertedName += name[i];
+        //     }
+        // }
 
-        for (int i = 0; i < name.Length; i++)
-        {
-            if (char.IsUpper(name[i]))
-            {
-                convertedName += "_" + char.ToLower(name[i]);
-            }
-            else
-            {
-                convertedName += name[i];
-            }
-        }
-
-        return convertedName;
+        return name.ToLower();
     }
 }

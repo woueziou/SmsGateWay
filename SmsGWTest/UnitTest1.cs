@@ -10,9 +10,9 @@ public class Tests
     }
 
     [Test]
-    public async Task Test1()
+    public async Task TestSendSms()
     {
-        var lampSms = new LampushGateWay("AhloncoTogo", "e7jnZF6BjU3X9a7", "SIGAEC");
+        var lampSms = new LampushGateWay("AhloncoTogo", "e7jnZF6BjU3X9a7", "LAM");
         try
         {
             await lampSms.SendMessage("Test from console", "+22890913661");
@@ -23,5 +23,16 @@ public class Tests
             Console.WriteLine(e);
             Assert.Fail();
         }
+    }
+        [Test]
+    public void TestRequestClass()
+    {
+        var request = new SmsRequest
+        {
+            Accountid = "A",
+            Password = "Pass",Sender = "Taas",Text = "Hello world",Receiver = new []{"90","91"},
+        };
+        var result = request.ToJson();
+        Console.WriteLine(result);
     }
 }

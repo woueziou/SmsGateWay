@@ -1,25 +1,38 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace SmsGateWayApi;
 
+public class Receiver
+{
+}
+
 public class SmsRequest
 {
-
     public string Text { get; set; }
-    public string To { get; set; }
+    [JsonIgnore] public string[] Receiver { get; set; }
     public string Accountid { get; set; }
     public string Password { get; set; }
     public string Hmac { get; internal set; }
     public string Sender { get; set; }
+
+
+    public dynamic To => ConvertReceiver();
+
+    private dynamic ConvertReceiver()
+    {
+        var result = Receiver.Select((data, i) => new Dictionary<string, string> { { $"{i + 1}", data } }).ToList();
+        return result;
+    }
 
     public StringContent ToJson()
     {
         var options = new JsonSerializerOptions
         {
             PropertyNamingPolicy = new SnakeCaseNamingPolicy(),
-            WriteIndented = true
+            WriteIndented = false
         };
         Hmac = HashMessage();
 
