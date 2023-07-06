@@ -39,14 +39,11 @@ public class LampushGateWay
             else
             {
                 var result = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(result);
-                var msg = response.RequestMessage.Content.ReadAsStringAsync();
-                Console.WriteLine(msg);
+                var msg =await response.RequestMessage?.Content.ReadAsStringAsync();
             }
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
             HandleError(e);
         }
     }

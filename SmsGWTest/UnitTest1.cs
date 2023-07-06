@@ -12,10 +12,10 @@ public class Tests
     [Test]
     public async Task TestSendSms()
     {
-        var lampSms = new LampushGateWay("AhloncoTogo", "e7jnZF6BjU3X9a7", "LAM");
+        var lampSms = new LampushGateWay("account_id", "password", "LAM");
         try
         {
-            await lampSms.SendMessage("Test from console", "+22890913661");
+             lampSms.SendMessage("Test not awaited", "+22890913661").GetAwaiter().GetResult();
          
         }
         catch (Exception e)
@@ -30,7 +30,7 @@ public class Tests
         var request = new SmsRequest
         {
             Accountid = "A",
-            Password = "Pass",Sender = "Taas",Text = "Hello world",Receiver = new []{"90","91"},
+            Password = "Pass",Sender = "Taas",Text = "Hello world",Receiver = new []{"90913661","98498611"},
         };
         var result = request.ToJson();
         Console.WriteLine(result);
