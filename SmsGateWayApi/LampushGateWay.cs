@@ -12,8 +12,8 @@ public class LampushGateWay
 
     public LampushGateWay(string accountId, string password, string sender)
     {
-        this._accountId = accountId;
-        this._password = password;
+        _accountId = accountId;
+        _password = password;
         _sender = sender;
         _httpClient = new HttpClient{BaseAddress =new Uri(_lampushServer)};
     }
