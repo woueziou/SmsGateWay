@@ -1,14 +1,15 @@
 using System.Text.Json;
 
-namespace SmSGateWay_Framework;
-
-
-public class SnakeCaseNamingPolicy : JsonNamingPolicy
+namespace SmSGateWay_Framework
 {
-    public override string ConvertName(string name)
+
+    public class SnakeCaseNamingPolicy : JsonNamingPolicy
     {
-        if (string.IsNullOrEmpty(name))
-            return name;
-        return name.ToLower();
+        public override string ConvertName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return name;
+            return name.ToLower();
+        }
     }
 }
